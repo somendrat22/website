@@ -39,6 +39,7 @@
       font-size: 20px;
       margin-top: 20px;
       color: #880e4f;
+      min-height: 60px;
     }
   </style>
 </head>
@@ -58,13 +59,25 @@
   </div>
 
   <!-- 💌 Clickable Button -->
-  <button onclick="showLoveMessage()">Click me, Muskan 💌</button>
+  <button onclick="showNextMessage()">Click me, Muskan 💌</button>
 
   <p id="message"></p>
 
   <script>
-    function showLoveMessage() {
-      document.getElementById('message').innerText = "You are my priority, my partner, my dream. I want to build a life with you. 🏠❤️";
+    const messages = [
+      "You are my priority, my partner, my dream. I want to build a life with you. 🏠❤️",
+      "Muskan, I want to see you switching to a great software engineer role. 👩‍💻✨",
+      "You will build a beautiful home for your lovely parents. 🏡👨‍👩‍👧‍👦",
+      "We’ll build a cozy farmhouse in Solan surrounded by nature. 🌲🌄",
+      "With you, I want to chase every dream and make them real — together. 💑🚀"
+    ];
+    
+    let messageIndex = 0;
+
+    function showNextMessage() {
+      const msg = document.getElementById('message');
+      msg.innerText = messages[messageIndex];
+      messageIndex = (messageIndex + 1) % messages.length;
     }
   </script>
 
