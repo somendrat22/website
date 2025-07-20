@@ -3,48 +3,70 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>For Muskan 💖</title>
+  <title>Muskan ❤️ Somendra</title>
   <style>
     body {
-      background: #fff0f5;
-      font-family: 'Arial', sans-serif;
+      font-family: sans-serif;
       text-align: center;
-      padding: 60px 20px;
+      background-color: #fff5f8;
+      color: #444;
+      padding: 20px;
     }
     h1 {
-      font-size: 3em;
-      color: #d63384;
-      margin-bottom: 20px;
+      color: #e91e63;
     }
-    p {
-      font-size: 1.2em;
-      color: #444;
-      max-width: 700px;
-      margin: 20px auto;
-      line-height: 1.6;
+    img {
+      width: 250px;
+      margin: 10px;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     }
-    .footer {
-      margin-top: 50px;
-      font-size: 0.9em;
-      color: #888;
+    button {
+      margin-top: 20px;
+      padding: 12px 24px;
+      font-size: 16px;
+      background-color: #ff4081;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+    button:hover {
+      background-color: #f50057;
+    }
+    #message {
+      font-size: 20px;
+      margin-top: 20px;
+      color: #880e4f;
     }
   </style>
 </head>
 <body>
-  <h1>For Muskan 💕</h1>
-  <p>
-    This page is just for you, Muskan.<br/>
-    Your name means smile — and that's exactly what you bring into my life every day.
-  </p>
-  <p>
-    You are kind, strong, and beautiful — in every way.<br/>
-    I made this small space on the internet to remind you how deeply appreciated and loved you are.
-  </p>
-  <p>
-    With love always,<br/>
-    <strong>Somendra</strong>
+
+  <h1>Muskan, You Are My Forever 💖</h1>
+
+  <p>I want to achieve every dream with you... 🏡✨<br>
+     You're my everything. Let's build our world together. 🌍💑
   </p>
 
-  <div class="footer">Made with ❤️ for Muskan — July 2025</div>
+  <!-- ❤️ Images -->
+  <div>
+    <img src="images/muskan_smile.jpeg" alt="Muskan's Smile">
+    <img src="images/image1.jpeg" alt="Together Forever">
+    <img src="images/image2.jpeg" alt="Cute Memories">
+  </div>
+
+  <!-- 💌 Clickable Button -->
+  <button onclick="showLoveMessage()">Click me, Muskan 💌</button>
+
+  <p id="message"></p>
+
+  <script>
+    function showLoveMessage() {
+      document.getElementById('message').innerText = "You are my priority, my partner, my dream. I want to build a life with you. 🏠❤️";
+    }
+  </script>
+
 </body>
 </html>
