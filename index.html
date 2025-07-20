@@ -4,186 +4,158 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Muskan ❤️ Somendra</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
   <style>
     * {
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
     }
 
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(135deg, #fff0f5, #ffe4e1);
-      color: #444;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-      position: relative;
-      overflow-x: hidden;
-    }
-
-    .container {
-      background-color: #ffffffdd;
-      padding: 30px 20px;
-      border-radius: 20px;
-      box-shadow: 0 8px 20px rgba(255, 105, 180, 0.2);
-      max-width: 600px;
-      width: 100%;
-      text-align: center;
-      position: relative;
-      z-index: 1;
-    }
-
-    h1 {
-      color: #e91e63;
-      font-size: 2.5rem;
-      margin-bottom: 15px;
-    }
-
-    p.intro {
-      font-size: 18px;
-      color: #666;
-      margin-bottom: 25px;
+      font-family: 'Quicksand', sans-serif;
+      background-color: #fce4ec;
+      color: #333;
       line-height: 1.6;
     }
 
-    .image-gallery {
+    header {
+      background-color: #e91e63;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    nav {
+      margin-top: 10px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+    }
+
+    main {
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .section {
+      margin-bottom: 50px;
+    }
+
+    .images {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 15px;
-      margin-bottom: 25px;
+      gap: 20px;
     }
 
-    .image-gallery img {
-      width: 180px;
-      border-radius: 15px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    .images img {
+      width: 250px;
+      border-radius: 12px;
+      transition: transform 0.3s ease;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.2);
     }
 
-    .image-gallery img:hover {
+    .images img:hover {
       transform: scale(1.05);
-      box-shadow: 0 6px 16px rgba(0,0,0,0.2);
     }
 
     button {
-      background-color: #ff4081;
-      border: none;
-      padding: 12px 28px;
-      border-radius: 30px;
+      background-color: #e91e63;
       color: white;
-      font-size: 16px;
+      border: none;
+      padding: 14px 28px;
+      border-radius: 10px;
+      font-size: 18px;
       cursor: pointer;
-      box-shadow: 0 4px 15px rgba(255, 64, 129, 0.4);
-      transition: background 0.3s ease, box-shadow 0.3s ease;
+      transition: 0.3s;
+      margin-top: 20px;
     }
 
     button:hover {
-      background-color: #f50057;
-      box-shadow: 0 6px 20px rgba(255, 64, 129, 0.6);
+      background-color: #d81b60;
     }
 
     #message {
-      font-size: 20px;
-      color: #ad1457;
-      margin-top: 25px;
-      min-height: 50px;
-      transition: all 0.3s ease;
+      margin-top: 30px;
+      font-size: 22px;
+      color: #880e4f;
+      font-weight: 600;
     }
 
-    /* Decorative animated hearts */
-    .hearts {
-      position: absolute;
-      top: 0;
-      left: 0;
-      pointer-events: none;
-      width: 100%;
-      height: 100%;
-      z-index: 0;
-      overflow: hidden;
+    footer {
+      background-color: #f8bbd0;
+      padding: 20px;
+      text-align: center;
+      font-size: 14px;
     }
 
-    .hearts span {
-      position: absolute;
-      display: block;
-      color: #ff80ab;
-      font-size: 20px;
-      animation: floatUp 6s linear infinite;
-      opacity: 0.6;
-    }
-
-    @keyframes floatUp {
-      0% {
-        transform: translateY(100vh) rotate(0deg);
-        opacity: 0.7;
-      }
-      100% {
-        transform: translateY(-10vh) rotate(360deg);
-        opacity: 0;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .image-gallery img {
-        width: 100px;
-      }
-      h1 {
-        font-size: 1.8rem;
-      }
-      button {
-        font-size: 14px;
-        padding: 10px 20px;
+    @media (max-width: 768px) {
+      .images img {
+        width: 90%;
       }
     }
   </style>
 </head>
 <body>
 
-  <div class="hearts">
-    <!-- Floating heart icons -->
-    <span style="left: 10%; animation-delay: 0s;">💖</span>
-    <span style="left: 30%; animation-delay: 2s;">💕</span>
-    <span style="left: 50%; animation-delay: 4s;">💓</span>
-    <span style="left: 70%; animation-delay: 1s;">💗</span>
-    <span style="left: 90%; animation-delay: 3s;">💞</span>
-  </div>
+  <header>
+    <h1>Muskan & Somendra 💖</h1>
+    <nav>
+      <a href="#about">About Us</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#dreams">Our Dreams</a>
+    </nav>
+  </header>
 
-  <div class="container">
-    <h1>Muskan, You Are My Forever 💖</h1>
+  <main>
+    <!-- 🥰 About Section -->
+    <section id="about" class="section">
+      <h2>Our Story 🌸</h2>
+      <p style="margin-top: 10px;">
+        Muskan, you're not just special — you're my priority. <br>
+        I want to achieve all my dreams with you. A home, a life, and infinite smiles together.
+      </p>
+      <button onclick="showLoveMessage()">Click me, Muskan 💌</button>
+      <p id="message"></p>
+    </section>
 
-    <p class="intro">I want to achieve every dream with you... 🏡✨<br>
-       You're my everything. Let's build our world together. 🌍💑
-    </p>
+    <!-- 📸 Image Gallery -->
+    <section id="gallery" class="section">
+      <h2>Our Moments 📸</h2>
+      <div class="images">
+        <img src="images/muskan_smile.jpeg" alt="Muskan's Smile">
+        <img src="images/image1.jpeg" alt="Together Forever">
+        <img src="images/image2.jpeg" alt="Cute Memories">
+      </div>
+    </section>
 
-    <div class="image-gallery">
-      <img src="images/muskan_smile.jpeg" alt="Muskan's Smile">
-      <img src="images/image1.jpeg" alt="Together Forever">
-      <img src="images/image2.jpeg" alt="Cute Memories">
-    </div>
+    <!-- 🌈 Dream Section -->
+    <section id="dreams" class="section">
+      <h2>Our Dreams 💭</h2>
+      <ul style="margin-top: 10px; list-style-type: '❤️ '; padding-left: 20px; text-align: left; max-width: 600px; margin: 20px auto;">
+        <li>Muskan will switch to a great Software Engineer role 💻</li>
+        <li>She will build a beautiful home for her parents 🏠</li>
+        <li>We will create our dream farmhouse in Solan 🌄</li>
+        <li>Together, we'll explore the world and support each other's ambitions 🌍</li>
+      </ul>
+    </section>
+  </main>
 
-    <button onclick="showNextMessage()">Click me, Muskan 💌</button>
-
-    <p id="message"></p>
-  </div>
+  <footer>
+    Made with ❤️ by Somendra for Muskan | Forever & Always
+  </footer>
 
   <script>
-    const messages = [
-      "You are my priority, my partner, my dream. I want to build a life with you. 🏠❤️",
-      "Muskan, I want to see you switching to a great software engineer role. 👩‍💻✨",
-      "You will build a beautiful home for your lovely parents. 🏡👨‍👩‍👧‍👦",
-      "We’ll build a cozy farmhouse in Solan surrounded by nature. 🌲🌄",
-      "With you, I want to chase every dream and make them real — together. 💑🚀"
-    ];
-
-    let messageIndex = 0;
-
-    function showNextMessage() {
-      const msg = document.getElementById('message');
-      msg.innerText = messages[messageIndex];
-      messageIndex = (messageIndex + 1) % messages.length;
+    function showLoveMessage() {
+      document.getElementById('message').innerText = 
+        "You are my priority, my partner, my dream. I want to build a life with you. 🏠❤️";
     }
   </script>
 
