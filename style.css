@@ -1,0 +1,169 @@
+/*
+  Modern, beautiful, and responsive CSS for the apology website.
+  Theme: Soft, romantic, and heartfelt.
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Open+Sans:wght@300;500&display=swap');
+
+:root {
+  --main-bg-gradient: linear-gradient(120deg, #ffe6e6 0%, #ffd9ec 100%);
+  --accent: #ff4d88;
+  --accent-dark: #d6336c;
+  --border: #ff99bb;
+  --white: #fff;
+  --shadow: 0 8px 32px rgba(0,0,0,0.15);
+  --text-main: #444;
+  --text-title: #d6336c;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  font-family: 'Open Sans', sans-serif;
+  background: var(--main-bg-gradient);
+  color: var(--text-main);
+  scroll-behavior: smooth;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+  overflow-x: hidden;
+}
+
+h1 {
+  font-family: 'Great Vibes', cursive;
+  color: var(--text-title);
+  font-size: 3.5rem;
+  margin-top: 2.5rem;
+  margin-bottom: 1.5rem;
+  text-shadow: 1px 2px 8px #fff, 0 1px 0 #ffd9ec;
+  letter-spacing: 2px;
+  text-align: center;
+}
+
+.message-box {
+  background: var(--white);
+  border-radius: 18px;
+  box-shadow: var(--shadow);
+  padding: 2.5rem 2rem;
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+  max-width: 650px;
+  width: 90vw;
+  text-align: center;
+  border: 2.5px solid var(--border);
+  transition: box-shadow 0.3s;
+}
+.message-box:hover {
+  box-shadow: 0 12px 32px rgba(255,77,136,0.18);
+}
+
+.message-box p {
+  font-size: 1.25rem;
+  color: var(--text-main);
+  line-height: 1.7;
+}
+
+.gallery {
+  margin-top: 2.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 22px;
+  justify-content: center;
+  width: 100%;
+}
+
+.gallery img {
+  width: 200px;
+  max-width: 90vw;
+  height: auto;
+  border-radius: 16px;
+  border: 3px solid var(--border);
+  box-shadow: 0 4px 18px rgba(0,0,0,0.13);
+  transition: transform 0.3s, box-shadow 0.3s;
+  background: #fff;
+}
+.gallery img:hover {
+  transform: scale(1.07) rotate(-2deg);
+  box-shadow: 0 8px 32px rgba(255,77,136,0.15);
+}
+
+.audio-control {
+  margin-top: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+button {
+  background: var(--accent);
+  border: none;
+  color: #fff;
+  padding: 14px 32px;
+  font-size: 1.1rem;
+  border-radius: 28px;
+  cursor: pointer;
+  transition: background 0.3s, box-shadow 0.3s, transform 0.2s;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.13);
+  margin-top: 1rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+button:hover {
+  background: var(--accent-dark);
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 8px 32px rgba(255,77,136,0.15);
+}
+
+.hearts {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.heart {
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  background: url('https://i.imgur.com/6NKPrhO.png') no-repeat center;
+  background-size: contain;
+  animation: float 8s infinite ease-in;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(100vh) scale(0.5);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(-10vh) scale(1.2);
+    opacity: 1;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  h1 {
+    font-size: 2.2rem;
+  }
+  .message-box {
+    padding: 1.2rem 0.7rem;
+    font-size: 1rem;
+  }
+  .gallery img {
+    width: 98vw;
+    max-width: 98vw;
+  }
+  button {
+    padding: 10px 18px;
+    font-size: 1rem;
+  }
+}
