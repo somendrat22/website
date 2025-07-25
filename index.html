@@ -3,48 +3,85 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>I'm Sorry Muskan 💔</title>
+  <title>I’m Sorry, Muskan 💔</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Open+Sans:wght@300;500&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
       padding: 0;
-      background: #ffe6ec;
-      font-family: 'Segoe UI', cursive;
+      font-family: 'Open Sans', sans-serif;
+      background: linear-gradient(to right, #ffe6e6, #ffd9ec);
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
       min-height: 100vh;
       overflow-x: hidden;
     }
 
     h1 {
+      font-family: 'Great Vibes', cursive;
       color: #d6336c;
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
+      font-size: 3.5rem;
+      margin-top: 2rem;
+      text-shadow: 1px 1px 2px #fff;
     }
 
-    p {
-      color: #444;
-      font-size: 1.2rem;
+    .message-box {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      padding: 2rem;
+      margin-top: 1rem;
+      max-width: 700px;
       text-align: center;
-      max-width: 600px;
-      padding: 0 1rem;
+      border: 2px solid #ff99bb;
+    }
+
+    .message-box p {
+      font-size: 1.2rem;
+      color: #444;
+      line-height: 1.6;
     }
 
     .gallery {
       margin-top: 2rem;
       display: flex;
-      gap: 10px;
       flex-wrap: wrap;
+      gap: 16px;
       justify-content: center;
     }
 
     .gallery img {
-      width: 200px;
+      width: 180px;
       height: auto;
-      border-radius: 10px;
+      border-radius: 12px;
+      border: 3px solid #ffcce5;
       box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+
+    .audio-control {
+      margin-top: 2rem;
+    }
+
+    button {
+      background-color: #ff4d88;
+      border: none;
+      color: white;
+      padding: 12px 24px;
+      font-size: 1rem;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+
+    button:hover {
+      background-color: #e6005c;
     }
 
     .hearts {
@@ -63,7 +100,7 @@
       height: 20px;
       background: url('https://i.imgur.com/6NKPrhO.png') no-repeat center;
       background-size: contain;
-      animation: float 6s infinite ease-in;
+      animation: float 8s infinite ease-in;
     }
 
     @keyframes float {
@@ -72,28 +109,9 @@
         opacity: 0;
       }
       100% {
-        transform: translateY(-10vh) scale(1);
+        transform: translateY(-10vh) scale(1.2);
         opacity: 1;
       }
-    }
-
-    .audio-control {
-      margin-top: 20px;
-    }
-
-    button {
-      background-color: #d6336c;
-      border: none;
-      color: white;
-      padding: 10px 20px;
-      font-size: 1rem;
-      border-radius: 8px;
-      cursor: pointer;
-      margin-top: 1rem;
-    }
-
-    button:hover {
-      background-color: #c02659;
     }
   </style>
 </head>
@@ -101,18 +119,22 @@
 
   <div class="hearts" id="hearts"></div>
 
-  <h1>I’m Sorry, Muskan</h1>
-  <p>
-    I know I ruined our good moments by overthinking.  
-    I should’ve just smiled with you instead.  
-    I promise I’m working on myself.  
-    Please forgive me 💔
-  </p>
+  <h1>I'm Sorry, Muskan 💔</h1>
+
+  <div class="message-box">
+    <p>
+      I know I ruined our good times by overthinking.<br>
+      I should've just smiled with you.<br>
+      I’m changing that now — no more overthinking.<br>
+      You deserve only happiness.<br>
+      I'm truly sorry. Please forgive me. 💖
+    </p>
+  </div>
 
   <div class="gallery">
-    <img src="images/Muskan1.jpeg" alt="Muskan 1" />
-    <img src="images/Muskan2.jpeg" alt="Muskan 2" />
-    <img src="images/Muskan3.jpeg" alt="Muskan 3" />
+    <img src="images/Muskan1.jpeg" alt="Muskan 1">
+    <img src="images/Muskan2.jpeg" alt="Muskan 2">
+    <img src="images/Muskan3.jpeg" alt="Muskan 3">
   </div>
 
   <div class="audio-control">
@@ -120,13 +142,25 @@
       <source src="images/terebin.mp3" type="audio/mpeg">
       Your browser does not support the audio element.
     </audio>
-    <button onclick="toggleMusic()">Play / Pause Music</button>
+    <button id="play-btn">Play Music 🎵</button>
   </div>
 
   <script>
-    // Heart animation
+    const bgMusic = document.getElementById("bg-music");
+    const playBtn = document.getElementById("play-btn");
+
+    playBtn.addEventListener("click", () => {
+      if (bgMusic.paused) {
+        bgMusic.play();
+        playBtn.textContent = "Pause Music ⏸️";
+      } else {
+        bgMusic.pause();
+        playBtn.textContent = "Play Music 🎵";
+      }
+    });
+
     const heartsContainer = document.getElementById('hearts');
-    for (let i = 0; i < 20; i++) {
+    for (let i = 0; i < 25; i++) {
       const heart = document.createElement('div');
       heart.className = 'heart';
       heart.style.left = Math.random() * 100 + 'vw';
@@ -134,17 +168,6 @@
       heart.style.animationDuration = 4 + Math.random() * 3 + 's';
       heartsContainer.appendChild(heart);
     }
-
-    // Music toggle
-    const bgMusic = document.getElementById("bg-music");
-    function toggleMusic() {
-      if (bgMusic.paused) {
-        bgMusic.play();
-      } else {
-        bgMusic.pause();
-      }
-    }
   </script>
-
 </body>
 </html>
