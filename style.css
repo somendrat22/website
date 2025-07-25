@@ -41,6 +41,24 @@ body {
   overflow-x: hidden;
 }
 
+body::before {
+  content: '';
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: -2;
+  background: url('https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+  opacity: 0.30;
+  filter: blur(2.5px) brightness(0.96);
+}
+body::after {
+  content: '';
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: -1;
+  background: linear-gradient(120deg, #ffe6e6cc 0%, #ffd9ecbb 100%);
+  pointer-events: none;
+}
+
 h1 {
   font-family: 'Great Vibes', cursive;
   color: var(--accent-dark);
@@ -103,9 +121,10 @@ h1 {
   z-index: 1;
 }
 .carousel-img {
-  width: 340px;
-  max-width: 92vw;
-  height: 440px;
+  width: 100%;
+  max-width: 370px;
+  aspect-ratio: 3/4;
+  height: auto;
   object-fit: cover;
   border-radius: 24px;
   border: 3px solid var(--heart-pink);
@@ -113,6 +132,15 @@ h1 {
   background: #fff;
   transition: box-shadow var(--transition), transform var(--transition);
   outline: 3px solid transparent;
+  display: block;
+}
+@media (max-width: 600px) {
+  .carousel-img {
+    max-width: 96vw;
+    aspect-ratio: 3/4;
+    height: auto;
+    min-height: 180px;
+  }
 }
 .carousel-img:hover {
   box-shadow: var(--card-hover-shadow);
