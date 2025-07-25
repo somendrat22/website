@@ -6,6 +6,82 @@
   <title>I’m Sorry, Muskan 💔</title>
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Open+Sans:wght@300;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Background image overlay with soft effect */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      z-index: -2;
+      background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+      opacity: 0.22;
+      filter: blur(2px) brightness(0.9);
+    }
+    /* Optional: subtle overlay for contrast */
+    body::after {
+      content: '';
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      z-index: -1;
+      background: linear-gradient(120deg, #ffe6e6bb 0%, #ffd9ecbb 100%);
+      pointer-events: none;
+    }
+    .carousel-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      margin: 2.5rem 0 1.5rem 0;
+      position: relative;
+      z-index: 1;
+    }
+    .carousel-img {
+      width: 320px;
+      max-width: 90vw;
+      height: 420px;
+      object-fit: cover;
+      border-radius: 22px;
+      border: 3px solid #ff99bb;
+      box-shadow: 0 8px 32px rgba(255,77,136,0.13);
+      background: #fff;
+      transition: box-shadow 0.3s, transform 0.3s;
+    }
+    .carousel-img:hover {
+      box-shadow: 0 16px 40px rgba(255,77,136,0.18);
+      transform: scale(1.03);
+    }
+    .carousel-btn {
+      background: #fff6fa;
+      border: none;
+      color: #ff4d88;
+      font-size: 2.2rem;
+      border-radius: 50%;
+      width: 48px;
+      height: 48px;
+      cursor: pointer;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.09);
+      transition: background 0.2s, color 0.2s, transform 0.2s;
+      outline: none;
+      z-index: 2;
+    }
+    .carousel-btn:hover {
+      background: #ff99bb;
+      color: #fff;
+      transform: scale(1.13);
+    }
+    @media (max-width: 600px) {
+      .carousel-img {
+        width: 96vw;
+        height: 220px;
+      }
+      .carousel-btn {
+        font-size: 1.5rem;
+        width: 38px;
+        height: 38px;
+      }
+    }
+  </style>
 </head>
 <body>
 
@@ -23,10 +99,11 @@
     </p>
   </div>
 
-  <div class="gallery">
-    <img src="images/Muskan1.jpeg" alt="Muskan 1">
-    <img src="images/Muskan2.jpeg" alt="Muskan 2">
-    <img src="images/Muskan3.jpeg" alt="Muskan 3">
+  <!-- Beautiful Carousel -->
+  <div class="carousel-container">
+    <button class="carousel-btn" id="carousel-prev" aria-label="Previous image">&#10094;</button>
+    <img id="carousel-img" class="carousel-img" src="images/Muskan1.jpeg" alt="Muskan carousel">
+    <button class="carousel-btn" id="carousel-next" aria-label="Next image">&#10095;</button>
   </div>
 
   <div class="audio-control">
@@ -37,6 +114,7 @@
     <button id="play-btn">Play Music 🎵</button>
   </div>
 
+  <script src="carousel.js"></script>
   <script>
     const bgMusic = document.getElementById("bg-music");
     const playBtn = document.getElementById("play-btn");

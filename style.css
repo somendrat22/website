@@ -6,14 +6,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Open+Sans:wght@300;500&display=swap');
 
 :root {
-  --main-bg-gradient: linear-gradient(120deg, #ffe6e6 0%, #ffd9ec 100%);
+  --main-bg-gradient: linear-gradient(120deg, #fef6fa 0%, #ffe6e6 50%, #f8e1f4 100%);
   --accent: #ff4d88;
   --accent-dark: #d6336c;
   --border: #ff99bb;
   --white: #fff;
-  --shadow: 0 8px 32px rgba(0,0,0,0.15);
-  --text-main: #444;
+  --heart-pink: #ffb6d5;
+  --heart-glow: #fff0fa;
+  --shadow: 0 8px 32px rgba(0,0,0,0.13);
+  --text-main: #3a2233;
   --text-title: #d6336c;
+  --card-radius: 22px;
+  --card-shadow: 0 8px 32px rgba(255,77,136,0.13);
+  --card-hover-shadow: 0 16px 40px rgba(255,77,136,0.18);
+  --transition: 0.3s cubic-bezier(.4,2,.6,1);
 }
 
 html, body {
@@ -37,30 +43,48 @@ body {
 
 h1 {
   font-family: 'Great Vibes', cursive;
-  color: var(--text-title);
-  font-size: 3.5rem;
-  margin-top: 2.5rem;
-  margin-bottom: 1.5rem;
-  text-shadow: 1px 2px 8px #fff, 0 1px 0 #ffd9ec;
-  letter-spacing: 2px;
+  color: var(--accent-dark);
+  font-size: 3.6rem;
+  margin-top: 2.8rem;
+  margin-bottom: 1.7rem;
+  text-shadow: 0 0 18px var(--heart-glow), 0 2px 8px #fff, 0 1px 0 #ffd9ec;
+  letter-spacing: 3px;
   text-align: center;
+  animation: heading-glow 2.5s infinite alternate;
+}
+@keyframes heading-glow {
+  from { text-shadow: 0 0 18px var(--heart-glow), 0 2px 8px #fff, 0 1px 0 #ffd9ec; }
+  to { text-shadow: 0 0 32px var(--accent), 0 2px 18px #fff, 0 1px 0 #ffd9ec; }
 }
 
 .message-box {
   background: var(--white);
-  border-radius: 18px;
-  box-shadow: var(--shadow);
-  padding: 2.5rem 2rem;
-  margin-top: 1rem;
-  margin-bottom: 1.5rem;
+  border-radius: var(--card-radius);
+  box-shadow: var(--card-shadow);
+  padding: 2.8rem 2.2rem;
+  margin-top: 1.2rem;
+  margin-bottom: 1.7rem;
   max-width: 650px;
-  width: 90vw;
+  width: 92vw;
   text-align: center;
   border: 2.5px solid var(--border);
-  transition: box-shadow 0.3s;
+  transition: box-shadow var(--transition), transform var(--transition);
+  position: relative;
+}
+.message-box::before {
+  content: '❤';
+  position: absolute;
+  top: -22px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2.2rem;
+  color: var(--accent);
+  filter: drop-shadow(0 0 8px var(--heart-glow));
+  opacity: 0.8;
 }
 .message-box:hover {
-  box-shadow: 0 12px 32px rgba(255,77,136,0.18);
+  box-shadow: var(--card-hover-shadow);
+  transform: translateY(-2px) scale(1.012);
 }
 
 .message-box p {
@@ -69,13 +93,65 @@ h1 {
   line-height: 1.7;
 }
 
-.gallery {
-  margin-top: 2.5rem;
+.carousel-container {
   display: flex;
-  flex-wrap: wrap;
-  gap: 22px;
+  align-items: center;
   justify-content: center;
-  width: 100%;
+  gap: 16px;
+  margin: 2.5rem 0 1.5rem 0;
+  position: relative;
+  z-index: 1;
+}
+.carousel-img {
+  width: 340px;
+  max-width: 92vw;
+  height: 440px;
+  object-fit: cover;
+  border-radius: 24px;
+  border: 3px solid var(--heart-pink);
+  box-shadow: var(--card-shadow);
+  background: #fff;
+  transition: box-shadow var(--transition), transform var(--transition);
+  outline: 3px solid transparent;
+}
+.carousel-img:hover {
+  box-shadow: var(--card-hover-shadow);
+  transform: scale(1.025);
+  outline: 3px solid var(--accent);
+}
+.carousel-btn {
+  background: var(--heart-glow);
+  border: none;
+  color: var(--accent);
+  font-size: 2.3rem;
+  border-radius: 50%;
+  width: 52px;
+  height: 52px;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.09);
+  transition: background 0.2s, color 0.2s, transform 0.2s;
+  outline: none;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.carousel-btn:hover {
+  background: var(--accent);
+  color: #fff;
+  transform: scale(1.13);
+  box-shadow: 0 8px 24px var(--heart-pink);
+}
+@media (max-width: 600px) {
+  .carousel-img {
+    width: 96vw;
+    height: 220px;
+  }
+  .carousel-btn {
+    font-size: 1.5rem;
+    width: 38px;
+    height: 38px;
+  }
 }
 
 .gallery img {
